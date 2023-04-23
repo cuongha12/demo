@@ -20,7 +20,10 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 app.use(bodyParser.json({ limit: "50mb" }))
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    methods: ['GET', 'POST']
+}))
 app.use(morgan("common"))
 
 allRouter(app)
